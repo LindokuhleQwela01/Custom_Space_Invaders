@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 80%;
+    background: black;
+    overflow: hidden;
+  }
+
+  .starfield {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .star {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: fall linear infinite;
+  }
+
+
+  .star:nth-child(1){ 
+    left: 10%; 
+    animation-duration: 5s;
+    animation-delay: 0s;  
+}
+
+  .star:nth-child(2) { 
+    left: 20%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+  }
+  .star:nth-child(3){
+    left: 30%;
+    animation-duration: 4s;
+    animation-delay: 2s;
+  }
+  .star:nth-child(4){
+    left: 40%;
+    animation-duration: 7s;
+    animation-delay: 3s;
+  }
+  .star:nth-child(5){
+    left: 50%;
+    animation-duration: 5s;
+    animation-delay: 1.5s;
+  }
+  .star:nth-child(6){
+    left: 60%;
+    animation-duration: 6s;
+    animation-delay: 2.5s;
+  }
+  .star:nth-child(7){ 
+    left: 70%; 
+    animation-duration: 4s; 
+    animation-delay: 3.5s;
+  }
+  .star:nth-child(8){ 
+    left: 80%; 
+    animation-duration: 6s; 
+    animation-delay: 4.5s;
+  }
+  .star:nth-child(9){ 
+    left: 90%; 
+    animation-duration: 5s; 
+    animation-delay: 0.5s;
+  }
+  .star:nth-child(10){ 
+    left: 95%; 
+    animation-duration: 7s; 
+    animation-delay: 1.2s;
+  }
+
+  .banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.content h2 b{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #fff;
+    
+    font-size: 120px;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+}
+
+.content h3 button{
+    position: center;
+    background-color: #111;
+    border-color: #fff;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 60px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-10px);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }

@@ -1,0 +1,3 @@
+******************************WELCOME TO THE SPACE PROGRAM************************************
+
+Aliens are invading and we need a protector. Join our space program and defeat all unwanted intruders. To help defend against the enemy initiate the "page_1.html" program and press the "START GAME" button. Use the keyboard "space_bar" to shoot up at the invaders. Becare full as the enemy will also be shooting down at you. Use the "Left" and "Right" arrow keys to evade enemy fire like a smooth criminal. Good luck out there Captain, the whole world is counting on you. To see the activity diagram and errors for the program open the "Read Me" pdf file. Thank you for using this program.
