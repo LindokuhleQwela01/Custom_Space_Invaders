@@ -1,4 +1,4 @@
-**1.) Purpose:**
+**1. Purpose:**
 
 This program is a browser-based 2D space shooter game developed using WebGL and JavaScript. It renders graphics on an HTML <canvas> element and simulates gameplay involving a player-controlled spaceship, enemy ships, bullets, and multiple levels of increasing difficulty.
 
@@ -17,3 +17,11 @@ The program uses the WebGL API to:
 Shaders (vertex and fragment)  
 Buffers (for positions and textures)  
 Game logic systems (movement, collision detection, levels)
+
+**Possible Improvements:**
+-Add score tracking system
+-Improve collision detection accuracy
+-Introduce player lives instead of instant game over
+-Add animations (explosions, transitions)
+-Use object-oriented design for better scalability
+-Fix shader uniform inconsistencies
