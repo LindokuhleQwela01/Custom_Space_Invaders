@@ -19,9 +19,9 @@ Buffers (for positions and textures)
 Game logic systems (movement, collision detection, levels)
 
 **Possible Improvements:**
--Add score tracking system
--Improve collision detection accuracy
--Introduce player lives instead of instant game over
--Add animations (explosions, transitions)
--Use object-oriented design for better scalability
--Fix shader uniform inconsistencies
+- Add score tracking system
+- Improve collision detection accuracy
+- Introduce player lives instead of instant game over
+- Add animations (explosions, transitions)
+- Use object-oriented design for better scalability
+- Fix shader uniform inconsistencies
