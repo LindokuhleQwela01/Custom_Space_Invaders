@@ -9,11 +9,15 @@ Overview:
 The program uses the WebGL API to:
 
 1.) Render shapes and textures
+
 2.) Handle transformations using matrices
+
 3.) Animate objects in real-time
 
 Key components include:
 
 Shaders (vertex and fragment)
+
 Buffers (for positions and textures)
+
 Game logic systems (movement, collision detection, levels)
