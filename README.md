@@ -1,4 +1,5 @@
 **Game Link:** https://lindokuhleqwela01.github.io/Custom_Space_Invaders/  
+
 **1. Purpose:**
 
 This program is a browser-based 2D space shooter game developed using WebGL and JavaScript. It renders graphics on an HTML <canvas> element and simulates gameplay involving a player-controlled spaceship, enemy ships, bullets, and multiple levels of increasing difficulty.
