@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="./src/styling.css">
 </head>
 <body>
-    <canvas></canvas>
+
+    
+    <audio id="bgMusic" src="./Sounds/AC_DC-Shoot-to-Thrill.mp3" autoplay loop></audio>
+    
     <div width="2500" height="2500" class="starfield">
         <div class="star"></div>
         <div class="star"></div> 
@@ -39,7 +42,22 @@
         </div>
     </div>
 
-    
+    <script>const audio = document.getElementById("bgMusic");
+
+  // Save playback position before leaving
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("musicTime", audio.currentTime);
+  });
+  
+  
+  window.addEventListener("load", () => {
+    const time = localStorage.getItem("musicTime");
+    if (time) {
+      audio.currentTime = time;
+    }
+    audio.play();
+  });
+  </script>
     
 
    
