@@ -1,7 +1,26 @@
+   const audio = document.getElementById("bgMusic");
+  window.addEventListener("load", () => {
+    const time = localStorage.getItem("musicTime");
+    if (time) {
+      audio.currentTime = time;
+    }
+    audio.play();
+  });
+
     // Get the webgl context
     const canvas = document.querySelector(`canvas`);
     const gl = canvas.getContext(`webgl`);
 
+    let score = 0;
+  
+    function increaseScore(points) {
+      score += points;
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      document.getElementById("scoreboard").textContent = "Score: " + score;
+    }
     //const texture = assignImageToObject(enemyImageSrc);
     //gl.bindTexture(gl.TEXTURE_2D, texture);
     // Vertex Shader
@@ -62,6 +81,7 @@
     blast = initTexture("../Images/blast.jpg");
     playerBlast = initTexture("../Images/playerBlast.jpg");
 
+    let died = -1;
     
 
     // Originally the image is inverted as it is assigned to a shape or object
@@ -139,6 +159,7 @@
         
         1: {
             init: () => {
+
                 intensity = 0.007
                 speed = 0.013
                 for (let i = -0.8; i < 0.8; i += 0.2) {
@@ -179,7 +200,7 @@
         4: {
             init: () => {
                 
-                intensity = 0.017
+                intensity = 0.016
                 speed = 0.023
                 for (let i = -0.8; i < 0.8; i += 0.2) {
                     for (let j = 0.6; j > 0.2; j -= 0.2) {
@@ -191,6 +212,45 @@
 
         5: {
             init: () => {
+                
+                intensity = 0.019
+                speed = 0.025
+                for (let i = -0.8; i < 0.8; i += 0.2) {
+                    for (let j = 0.6; j > 0.2; j -= 0.2) {
+                        enemyPos.push({ x: i, y: j });
+                    }
+                }
+            }
+        },
+
+        6: {
+            init: () => {
+                
+                intensity = 0.022
+                speed = 0.027
+                for (let i = -0.8; i < 0.8; i += 0.2) {
+                    for (let j = 0.6; j > 0.2; j -= 0.2) {
+                        enemyPos.push({ x: i, y: j });
+                    }
+                }
+            }
+        },
+
+        7: {
+            init: () => {
+                
+                intensity = 0.025
+                speed = 0.029
+                for (let i = -0.8; i < 0.8; i += 0.2) {
+                    for (let j = 0.6; j > 0.2; j -= 0.2) {
+                        enemyPos.push({ x: i, y: j });
+                    }
+                }
+            }
+        },
+
+        8: {
+            init: () => {
                 alert("You WIN!!");
                 window.location.replace(newLoc);
             }
@@ -201,6 +261,7 @@
 
     function loadSound(){
         sound = new Audio('../Sounds/blaster.wav');
+        sound.volume = 0.11;
         sound.play();
         soundOn = false;
     }
@@ -265,7 +326,9 @@
                     console.log("enemies: " + numberOfEnemies);
                     bullets.splice(bIndex, 1);
                     sound = new Audio('../Sounds/explosion.wav');
+                    sound.volume = 0.11;
                     sound.play();
+                    increaseScore(1);
                     numberOfEnemies++;
                 }
             });
@@ -286,20 +349,30 @@
                 fire.splice(aIndex, 1);
                 // Pac-man sound for dramatic affect, signifying that you've been hit by the enemy.
                 // Wanted to make this as enjoyable as possible by not only stimulating the player visual, but also decided to use sounds.
-                sound = new Audio('../Sounds/Pac-ManDeathSound.mp3');
-                sound.play();
+                
+                if(died == -1){
+                    sound = new Audio('../Sounds/Pac-ManDeathSound.mp3');
+                    sound.play();
+                    died = 0;
+                    
+                }
+                
 
                 // Do whatever is inside the setTimeout function after the specified time in milliseconds.
                 nextLevel = setTimeout(() => {
-                    alert("GAME OVER"),
+                    console.log("Game Over"),
                     window.location.replace(newLoc);
-                }, 50 /* time in milliseconds */);
+                }, 4000 /* time in milliseconds */);
+
+                window.addEventListener("beforeunload", () => {
+                    localStorage.setItem("musicTime", audio.currentTime);
+                });
                 
                 // Remove the entire array of enemies once the player is hit by enemy fire.
                 enemyPos.forEach((enemy, eIndex) => {
                     enemyPos.splice(eIndex, 16);
-                }
-        )}
+                })            
+            }
         });
 
     }
@@ -321,6 +394,7 @@
     }
 
 
+    
     function drawBull(xCo, texture){
         gl.useProgram(program);
         gl.uniformMatrix4fv(translationUniformLocation, false, xCo);
@@ -337,6 +411,7 @@
     // Main function that calls all the necessary functions to make the magic that is operating, running and animating this program.
     function update() {
         gl.useProgram(program);
+        
         
         if(gamePlay == true){
             if(Math.random() , 0.002){
@@ -357,6 +432,8 @@
             gamePlay = true;
             location.reload();
         }
+
+      
         requestAnimationFrame(update);
     }
 
@@ -385,6 +462,5 @@
         motion *= -1;
     }
 
-    
     levels[level].init();
     update();
